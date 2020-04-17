@@ -40,7 +40,7 @@
 //     // use the match method to find each instance using a reg ex as paramater
 //     // use regular expression [aeiou]/g for the vowels 
 //     // use .lenght to count the instances 
-//     words = words.match(/[aeiou]/g).length;
+    // words = words.match(/[aeiou]/g).length;
 //     return words; 
 
 // }
@@ -69,29 +69,21 @@
 
 //STEP 5
 
-// var countryNames = ["Australia", "Germany", "Nepal", "United States of America"]; 
 
-// function longestCountry() {
-//     "use strict";
-    
-    
-// }
-
-
-var countryNames = ("Australia, Germany, Nepal, United States of America"); 
-var newCountries = countryNames.split(",");
-window.console.log(newCountries); 
-function counter () {
-    var  countryArray;
-for (var i = 0; i < newCountries.length; i++) {
-    countryArray += newCountries[i].length;
-    return countryArray;
-}
-
-}
-
-window.console.log(counter(newCountries)); 
+var countryNames = ["Australia", "Germany", "Nepal", "United States of America","Republica Bolivariana del estado libre de venezuela"]; 
 
 
 
+var longestName = function(arr){
+    var count = []; // Create an empty array to push the number of the lenght of each item [i] in the original array 
+    for(var i = 0; i < arr.length; i++){
+      count.push(arr[i].length);
+    }
+    var max = Math.max.apply(null, count); // use apply null to pass the count array into math object 
+    var index = count.indexOf(max); // get the index of the word with the highest number of characters in the count [] array eg. [3, 5, 8, 6] --> 2 (the tird item in the array which is 8)
+    return arr[index]; // return the item in the original array (countryNames) located at the index value which in the example would be 8 
+  };
+window.console.log(longestName(countryNames)); 
 
+
+ 
